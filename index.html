@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeremy Satre | Change Management Expert & Founder of ZeroDrama.ai</title>
+    <meta name="description" content="Jeremy Satre is an organizational change management expert helping organizations reduce friction, increase adoption, and achieve zero-drama transformations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2b4a;
+            --steel-blue: #5889A8;
+            --lime: #B8D84F;
+            --coral: #FF9A6C;
+            --off-white: #fafafa;
+            --light-gray: #f0f2f5;
+            --text-primary: #1a2b4a;
+            --text-secondary: #5a6a7a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--off-white);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--navy) 0%, #2a3f5f 50%, var(--steel-blue) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(184, 216, 79, 0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 60%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(255, 154, 108, 0.08) 0%, transparent 60%);
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(30px, -30px) rotate(5deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 4rem 0;
+        }
+
+        .hero-text {
+            color: white;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 500;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text h1 span {
+            color: var(--lime);
+        }
+
+        .hero-text .tagline {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2rem;
+            max-width: 480px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--lime);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: #c9e860;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(184, 216, 79, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Photo placeholder */
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo-frame {
+            width: 380px;
+            height: 450px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .photo-frame::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 60%, rgba(26, 43, 74, 0.2) 100%);
+            pointer-events: none;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--steel-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .about h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--navy);
+            line-height: 1.3;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p:first-of-type {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        /* Services / What I Do */
+        .services {
+            padding: 6rem 0;
+            background: var(--light-gray);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(26, 43, 74, 0.08);
+            border-color: var(--lime);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--lime), #9bc23c);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--navy);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 0;
+            background: var(--navy);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(88, 137, 168, 0.2) 0%, transparent 70%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-coral {
+            background: var(--coral);
+            color: var(--navy);
+        }
+
+        .btn-coral:hover {
+            background: #ffab82;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 154, 108, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            background: #0f1a2e;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--lime);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text .tagline {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .photo-frame {
+                width: 280px;
+                height: 340px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Helping organizations achieve <span>zero drama</span> transformations</h1>
+                    <p class="tagline">I'm Jeremy Satre — an organizational change management expert focused on reducing friction, driving adoption, and making change work for people.</p>
+                    <div class="hero-buttons">
+                        <a href="https://zerodrama.ai" class="btn btn-primary" target="_blank">
+                            Visit ZeroDrama.ai
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                        </a>
+                        <a href="mailto:jeremy@zerodrama.ai" class="btn btn-secondary">Get in Touch</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="photo-frame">
+                        <img src="jeremy-satre.jpg" alt="Jeremy Satre - Change Management Expert">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <span class="about-label">About</span>
+                    <h2>The people side of change is where success happens</h2>
+                </div>
+                <div class="about-text">
+                    <p>As an experienced OCM expert, I help private and public sector entities—from startups to large enterprises—reduce project friction and work towards "Zero Drama" in their initiatives.</p>
+                    <p>By focusing on the people side of change, I drive higher user adoption, increased usage, and enhanced customer experiences. My approach turns potential chaos into seamless success through empathy, stakeholder engagement, and continuous calibration.</p>
+                    <p>Whether you're leading a team through a digital transformation, merger, or cultural shift, I provide the strategies and frameworks to manage change effectively.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>How I Help</h2>
+                <p>Tailored support for high-performance change at every level</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Organizational Consulting</h3>
+                    <p>Partner with leaders to optimize OCM projects, identifying and eliminating sources of friction such as resistance, misalignment, and communication gaps.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 16v-4"/>
+                            <path d="M12 8h.01"/>
+                        </svg>
+                    </div>
+                    <h3>Executive Coaching</h3>
+                    <p>Personalized sessions to guide professionals at all levels in building resilience, fostering collaboration, and leading change with confidence.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+                            <path d="M12 2a10 10 0 0 1 10 10"/>
+                            <circle cx="12" cy="12" r="6"/>
+                        </svg>
+                    </div>
+                    <h3>AI-Powered Tools</h3>
+                    <p>Access the ZeroDrama.ai chat tool for on-demand change management guidance, mitigation strategies, and step-by-step solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to reduce friction in your next change initiative?</h2>
+                <p>Book a complimentary 30-minute Design Alliance session. We'll discuss your goals and outline a customized plan to achieve zero drama.</p>
+                <div class="cta-buttons">
+                    <a href="https://zerodrama.ai" class="btn btn-coral" target="_blank">Try the AI Tool</a>
+                    <a href="mailto:jeremy@zerodrama.ai" class="btn btn-secondary">Schedule a Call</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://zerodrama.ai" target="_blank">ZeroDrama.ai</a>
+                <a href="https://linkedin.com/in/jeremysatre" target="_blank">LinkedIn</a>
+                <a href="mailto:jeremy@zerodrama.ai">Email</a>
+            </div>
+            <p class="copyright">&copy; 2025 Jeremy Satre. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
